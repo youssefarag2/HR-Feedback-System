@@ -1,15 +1,28 @@
 import "./App.css";
-import FeedbackTable from "./components/FeedbackTable";
-import PieChart from "./charts/PieChart";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Dashboard from "./pages/Dashboard";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
-    <div className="w-screen min-h-screen bg-gray-100 flex flex-col items-center">
-      <div className="w-full max-w-7xl p-8 space-y-6">
-        <FeedbackTable />
-        <PieChart />
+    <Router>
+      <div className="flex min-h-screen bg-gray-100 w-screen">
+        <Sidebar />
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/chat" element={<Chat />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   );
 }
 

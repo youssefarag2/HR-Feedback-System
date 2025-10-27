@@ -1,8 +1,47 @@
+import { useState } from "react";
+
+import ChatList from "../components/chat/ChatList";
+import ChatWindow from "../components/chat/ChatWindow";
+
+interface Employee {
+  id: string;
+  name: string;
+  avatar: string;
+  email: string;
+  role: string;
+}
+
 const Chat = () => {
+  const [selectedConversationId, setSelectedConversationId] = useState<
+    string | null
+  >(null);
+  const [selectedEmployee, setSelectedEmployee] = useState<Employee | null>(
+    null
+  );
+  const hrId = "hr_sarah";
+
   return (
-    <div className="p-8 bg-gray-100 min-h-screen w-full">
-      <h2 className="text-2xl font-semibold text-gray-800 mb-4">Chat</h2>
-      <p className="text-gray-600">Chat feature coming soon...</p>
+    <div className="flex h-screen">
+      <ChatList
+        onSelectConversation={(conversationId, employee) => {
+          setSelectedConversationId(conversationId);
+          setSelectedEmployee(employee);
+        }}
+      />
+      <div className="flex-1 bg-gray-50">
+        {selectedConversationId ? (
+          <ChatWindow
+            conversationId={selectedConversationId}
+            employeeName={selectedEmployee!.name}
+            employeeAvatar={selectedEmployee!.avatar}
+            hrId={hrId}
+          />
+        ) : (
+          <div className="flex items-center justify-center h-full text-gray-500">
+            Select an employee to start chatting
+          </div>
+        )}
+      </div>
     </div>
   );
 };

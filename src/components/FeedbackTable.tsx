@@ -57,7 +57,7 @@ const FeedbackTable = ({ feedback }: { feedback: Feedback[] }) => {
         <button
           onClick={goToPreviousPage}
           disabled={currentPage === 1}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+          className={`w-28 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
             currentPage === 1
               ? "bg-gray-200 text-gray-500 cursor-not-allowed"
               : "bg-blue-500 text-white hover:bg-blue-600"
@@ -69,7 +69,7 @@ const FeedbackTable = ({ feedback }: { feedback: Feedback[] }) => {
         <button
           onClick={goToNextPage}
           disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
+          className={`w-24 px-4 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
             currentPage === totalPages
               ? "bg-gray-200 text-gray-500 cursor-not-allowed"
               : "bg-blue-500 text-white hover:bg-blue-600"

@@ -35,7 +35,7 @@ const PieChart = ({
         <h2 className="text-xl font-semibold text-gray-800 mb-1">
           Feedback Score Distribution
         </h2>
-        <p className="text-5xl font-bold text-blue-600 mb-1">
+        <p className="text-5xl font-bold text-green-500 mb-1">
           {averageScore.toFixed(2)}
         </p>
         <span className="text-gray-500 text-base">Average Score ⭐️</span>

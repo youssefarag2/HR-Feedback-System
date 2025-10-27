@@ -31,15 +31,15 @@ const PieChart = ({
   }));
   return (
     <div className="w-full bg-gray-50 rounded-xl border border-gray-200 p-6 shadow-sm">
-      <h2 className="text-lg font-semibold text-gray-800">
-        Feedback Score Distribution
-      </h2>
-      <p className="text-gray-500 text-sm mb-4">
-        Average Score:{" "}
-        <span className="font-medium text-gray-800">
+      <div className="mb-6">
+        <h2 className="text-xl font-semibold text-gray-800 mb-1">
+          Feedback Score Distribution
+        </h2>
+        <p className="text-5xl font-bold text-blue-600 mb-1">
           {averageScore.toFixed(2)}
-        </span>
-      </p>
+        </p>
+        <span className="text-gray-500 text-base">Average Score ⭐️</span>
+      </div>
 
       <div className="w-full flex justify-center">
         <div className="max-w-md w-full">

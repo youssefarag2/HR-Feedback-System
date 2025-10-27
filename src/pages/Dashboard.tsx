@@ -44,7 +44,7 @@ const Dashboard = () => {
       : 0;
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen space-y-6 w-full overflow-y-auto">
+    <div className="p-8 bg-gray-100 min-h-screen space-y-6 w-full overflow-y-auto overflow-x-hidden">
       <FeedbackTable feedback={feedback} />
       <FeedbackPieChart feedback={feedback} averageScore={averageScore} />
     </div>

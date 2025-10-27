@@ -10,7 +10,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="w-56 bg-white shadow-md h-screen p-4 flex flex-col">
+    <div className="fixed w-56 bg-white shadow-md h-screen p-4 flex flex-col">
       <img
         src={logo}
         alt="HR Panel Logo"

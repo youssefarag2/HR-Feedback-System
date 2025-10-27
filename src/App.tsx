@@ -12,9 +12,9 @@ import Chat from "./pages/Chat";
 function App() {
   return (
     <Router>
-      <div className="flex min-h-screen bg-gray-100 w-screen">
+      <div className="flex min-h-screen bg-gray-100">
         <Sidebar />
-        <div className="flex-1">
+        <div className="flex-1 ml-57">
           <Routes>
             <Route path="/" element={<Navigate to="/dashboard" />} />
             <Route path="/dashboard" element={<Dashboard />} />

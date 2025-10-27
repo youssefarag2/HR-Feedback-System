@@ -42,7 +42,7 @@ const PieChart = ({
       </p>
 
       <div className="w-full flex justify-center">
-        <div className="w-[40%]">
+        <div className="max-w-md w-full">
           <ResponsiveContainer width="100%" height={300}>
             <RechartsPieChart>
               <Pie

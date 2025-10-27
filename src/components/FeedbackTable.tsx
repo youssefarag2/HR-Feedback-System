@@ -1,7 +1,3 @@
-import { useState, useEffect } from "react";
-import { db } from "../firebase";
-import { collection, onSnapshot, Timestamp } from "firebase/firestore";
-
 interface Feedback {
   id: string;
   date: string;
@@ -10,57 +6,7 @@ interface Feedback {
   notes: string;
 }
 
-// const mockData: Feedback[] = [
-//   {
-//     id: 1,
-//     date: "2024-07-26",
-//     employeeName: "Alice Johnson",
-//     score: 5,
-//     notes: "Excellent teamwork and communication.",
-//   },
-//   {
-//     id: 2,
-//     date: "2024-07-25",
-//     employeeName: "Bob Smith",
-//     score: 4,
-//     notes: "Good performance but needs to meet deadlines.",
-//   },
-//   {
-//     id: 3,
-//     date: "2024-07-23",
-//     employeeName: "Charlie Brown",
-//     score: 3,
-//     notes: "Average contribution, can improve further.",
-//   },
-// ];
-
-const FeedbackTable = () => {
-  const [feedback, setFeedback] = useState<Feedback[]>([]);
-  useEffect(() => {
-    const feedbackRef = collection(db, "feedback");
-
-    const unsubscribe = onSnapshot(feedbackRef, (snapshot) => {
-      const feedbackData: Feedback[] = snapshot.docs.map((doc) => {
-        const data = doc.data();
-        return {
-          id: doc.id,
-          employeeName: data.employeeName,
-          score: data.score,
-          notes: data.notes,
-          date:
-            data.date instanceof Timestamp
-              ? data.date.toDate().toLocaleDateString()
-              : data.date,
-        };
-      });
-      setFeedback(feedbackData);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  console.log(feedback);
-
+const FeedbackTable = ({ feedback }: { feedback: Feedback[] }) => {
   return (
     <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
       <table className="min-w-full text-left">
